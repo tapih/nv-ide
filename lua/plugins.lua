@@ -31,11 +31,16 @@ return require('packer').startup(function(use)
   use 'andymass/vim-matchup'
 
   -- Treesitter
-  -- use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  -- use 'p00f/nvim-ts-rainbow'
-  -- use { 'lukas-reineke/indent-blankline.nvim', branch = 'lua' }
-  -- use 'JoosepAlviste/nvim-ts-context-commentstring'
-  -- use 'romgrk/nvim-treesitter-context'
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use { 'lukas-reineke/indent-blankline.nvim', branch = 'lua' }
+  use {
+      'JoosepAlviste/nvim-ts-context-commentstring',
+      requires = {'nvim-treesitter/nvim-treesitter'},
+  }
+  use {
+      'romgrk/nvim-treesitter-context',
+      requires = {'nvim-treesitter/nvim-treesitter'},
+  }
 
   -- Syntax
   use 'zinit-zsh/zplugin-vim-syntax'
