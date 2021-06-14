@@ -31,19 +31,18 @@ return require('packer').startup(function(use)
   use 'andymass/vim-matchup'
 
   -- Treesitter
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use 'p00f/nvim-ts-rainbow'
-  use { 'lukas-reineke/indent-blankline.nvim', branch = 'lua' }
-  use 'JoosepAlviste/nvim-ts-context-commentstring'
-  use 'romgrk/nvim-treesitter-context'
+  -- use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  -- use 'p00f/nvim-ts-rainbow'
+  -- use { 'lukas-reineke/indent-blankline.nvim', branch = 'lua' }
+  -- use 'JoosepAlviste/nvim-ts-context-commentstring'
+  -- use 'romgrk/nvim-treesitter-context'
 
   -- Syntax
-  use 'moll/vim-node'
+  -- use 'moll/vim-node'
   use 'zinit-zsh/zplugin-vim-syntax'
-  use 'editorconfig/editorconfig-vim'
   use 'chrisbra/csv.vim'
-  use 'npxbr/glow.nvim'
   use 'junegunn/vim-easy-align'
+  use 'bronson/vim-trailing-whitespace'
 
   -- Icons
   use 'kyazdani42/nvim-web-devicons'
@@ -60,7 +59,13 @@ return require('packer').startup(function(use)
   use 'nvim-telescope/telescope-fzy-native.nvim'
   use 'nvim-telescope/telescope-project.nvim'
   use 'fhill2/telescope-ultisnips.nvim'
-  use { 'pwntester/octo.nvim', requires = {{'nvim-lua/plenary.nvim'}, {'nvim-lua/popup.nvim'}} }
+  use {
+    'pwntester/octo.nvim',
+    requires = {
+      {'nvim-lua/plenary.nvim'},
+      {'nvim-lua/popup.nvim'},
+    },
+  }
 
   -- Explorer
   use 'kyazdani42/nvim-tree.lua'
@@ -69,13 +74,41 @@ return require('packer').startup(function(use)
   use 'norcalli/nvim-colorizer.lua'
 
   -- Git
-  use { 'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'} }
-  use 'kdheepak/lazygit.nvim'
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {'nvim-lua/plenary.nvim'},
+  }
   use 'rhysd/committia.vim'
   use 'sindrets/diffview.nvim'
 
   -- Flutter
   use 'akinsho/flutter-tools.nvim'
+  use { 'thosakwe/vim-flutter', ft = {'dart'} }
+  use { 'dart-lang/dart-vim-plugin', ft = {'dart'} }
+  use { 'reisub0/hot-reload.vim', ft = {'dart'} }
+
+  -- Go
+  use { 'buoto/gotests-vim', ft = {'go'} }
+  use { 'mattn/vim-goimports', ft = {'go'} }
+
+  -- Markdown
+  use { 'godlygeek/tabular', ft = {'markdown'} }
+  use { 'plasticboy/vim-markdown', ft = {'markdown'} }
+  use {
+    'iamcco/markdown-preview.nvim',
+    run = 'cd app && yarn install',
+    cmd = 'MarkdownPreview',
+  }
+
+  -- YAML
+  use { 'yasuhiroki/github-actions-yaml.vim', ft = {'yaml'} }
+  use { 'xavierchow/vim-swagger-preview', ft = {'yaml'} }
+  use { 'andrewstuart/vim-kubernetes', ft = {'yaml'} }
+
+  -- Other languages support
+  use { 'hashivim/vim-terraform', ft = {'tf'} }
+  use { 'uarun/vim-protobuf', ft = {'proto'} }
+  use { 'tmux-plugins/vim-tmux', ft = {'tmux'} }
 
   -- Registers
   use 'tversteeg/registers.nvim'
@@ -86,36 +119,27 @@ return require('packer').startup(function(use)
   use 'dyng/ctrlsf.vim'
   use 'kevinhwang91/nvim-hlslens'
   use 'justinmk/vim-sneak'
-  use 'kshenoy/vim-signature'
+  use 'easymotion/vim-easymotion'
   use 'karb94/neoscroll.nvim'
   use 'dstein64/nvim-scrollview'
   use 'chaoren/vim-wordmotion'
+  use 'coderifous/textobj-word-column.vim'
 
   -- Tim Pope docet
   use 'tpope/vim-sensible'
-  use 'tpope/vim-rails'
-  use 'tpope/vim-abolish'
   use 'tpope/vim-surround'
-  use 'tpope/vim-bundler'
-  use 'tpope/vim-capslock'
   use 'tpope/vim-repeat'
-  use 'tpope/vim-endwise'
-  use 'tpope/vim-rvm'
   use 'tpope/vim-dispatch'
-  use 'tpope/vim-dadbod'
-  use 'tpope/vim-jdaddy'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-commentary'
 
   -- Tmux
   use 'christoomey/vim-tmux-navigator'
+  use 'roxma/vim-tmux-clipboard'
 
   -- Colorschema
   use 'sainnhe/gruvbox-material'
   use 'sainnhe/sonokai'
-
-  -- Tags
-  use 'ludovicchabant/vim-gutentags'
 
   -- General Plugins
   use 'airblade/vim-rooter'
@@ -123,6 +147,12 @@ return require('packer').startup(function(use)
   use 'jeffkreeftmeijer/vim-numbertoggle'
   use 'lambdalisue/suda.vim'
   use 'numtostr/FTerm.nvim'
-  use 'wfxr/minimap.vim'
   use 'folke/todo-comments.nvim'
+  use 'vim-scripts/loremipsum'
+  use 'ruanyl/vim-gh-line'
+  use {
+    'tyru/open-browser.vim',
+    cmd = {'OpenBrowser', 'OpenBrowserSearch', 'OpenBrowserSmartSearch'},
+  }
+
 end)
