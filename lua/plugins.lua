@@ -86,7 +86,7 @@ return require('packer').startup(function(use)
   use 'sindrets/diffview.nvim'
 
   -- Flutter
-  use 'akinsho/flutter-tools.nvim'
+  use { 'akinsho/flutter-tools.nvim', ft = {'dart'} }
   use { 'thosakwe/vim-flutter', ft = {'dart'} }
   use { 'dart-lang/dart-vim-plugin', ft = {'dart'} }
   use { 'reisub0/hot-reload.vim', ft = {'dart'} }
@@ -100,6 +100,7 @@ return require('packer').startup(function(use)
   use { 'plasticboy/vim-markdown', ft = {'markdown'} }
   use {
     'iamcco/markdown-preview.nvim',
+    ft = {'markdown'},
     run = 'cd app && yarn install',
     cmd = 'MarkdownPreview',
   }
