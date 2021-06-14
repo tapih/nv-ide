@@ -11,39 +11,10 @@ vim.cmd('sign define LspDiagnosticsSignInformation text=')
 vim.cmd('sign define LspDiagnosticsSignHint text=')
 vim.cmd('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
 
-require'lspconfig'.html.setup {
-    filetypes = {"html", "eruby"},
-  capabilities = capabilities,
-}
-require'lspconfig'.tsserver.setup{
-}
-require'lspconfig'.solargraph.setup{
-  capabilities = capabilities,
-}
-require'lspconfig'.cssls.setup{
-  capabilities = capabilities,
-}
-require'lspconfig'.dockerls.setup{
-}
-require'lspconfig'.jsonls.setup{
-  commands = {
-    Format = {
-      function()
-        vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line("$"),0})
-      end
-    }
-  }
-}
-require'lspconfig'.yamlls.setup{
-}
-require'lspconfig'.vimls.setup{
-}
-require'lspconfig'.dartls.setup{
-}
-require("flutter-tools").setup{} -- use defaults
-
--- alternatively you can override the default configs
-require("flutter-tools").setup {
+require'lspconfig'.gopls.setup{}
+require'lspconfig'.dartls.setup{}
+require'flutter-tools'.setup{}
+require'flutter-tools'.setup {
   experimental = { -- map of feature flags
     lsp_derive_paths = true, -- EXPERIMENTAL: Attempt to find the user's flutter SDK
   },
@@ -67,3 +38,22 @@ require("flutter-tools").setup {
     capabilities = capabilities -- e.g. lsp_status capabilities
   }
 }
+require'lspconfig'.pyright.setup{}
+require'lspconfig'.dockerls.setup{}
+require'lspconfig'.terraformls.setup{}
+require'lspconfig'.jsonls.setup{
+  commands = {
+    Format = {
+      function()
+        vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line("$"),0})
+      end
+    }
+  }
+}
+require'lspconfig'.yamlls.setup{}
+require'lspconfig'.vimls.setup{}
+require'lspconfig'.html.setup { capabilities = capabilities }
+require'lspconfig'.cssls.setup{ capabilities = capabilities }
+require'lspconfig'.tsserver.setup{}
+require'lspconfig'.graphql.setup{}
+
