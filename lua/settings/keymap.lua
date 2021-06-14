@@ -1,8 +1,28 @@
 -- Basic
+vim.cmd[[function! OpenBufferNumber()
+    let count = 0
+    for i in range(0, bufnr("$"))
+        if buflisted(i)
+            let count += 1
+        endif
+    endfor
+    return count
+endfunction
+]]
+vim.cmd[[
+function! CloseOnLast()
+    if OpenBufferNumber() <= 1
+        q
+    else
+        bd
+    endif
+endfunction
+]]
+
 vim.api.nvim_set_keymap('n', '<CR>', ':<C-u>w<CR>', {noremap = true, silent = false})
 vim.api.nvim_set_keymap('n', '<C-p>', '<Up>', {noremap = true, silent = false})
 vim.api.nvim_set_keymap('n', '<C-n>', '<Down>', {noremap = true, silent = false})
-vim.api.nvim_set_keymap('n', 'q', ':q<CR>', {noremap = true, silent = false})
+vim.api.nvim_set_keymap('n', 'q', ':<C-u>call CloseOnLast()<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'Q', 'q', {noremap = true, silent = false})
 vim.api.nvim_set_keymap('n', 'U', '<C-r>', {noremap = true, silent = false})
 vim.api.nvim_set_keymap('n', '<C-r>', '<Nop>', {noremap = true, silent = false})
