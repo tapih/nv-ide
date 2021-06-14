@@ -38,7 +38,6 @@ return require('packer').startup(function(use)
   -- use 'romgrk/nvim-treesitter-context'
 
   -- Syntax
-  -- use 'moll/vim-node'
   use 'zinit-zsh/zplugin-vim-syntax'
   use 'chrisbra/csv.vim'
   use 'junegunn/vim-easy-align'
