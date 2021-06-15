@@ -86,7 +86,7 @@ return require('packer').startup(function(use)
   use 'sindrets/diffview.nvim'
 
   -- Flutter
-  use { 'akinsho/flutter-tools.nvim', ft = {'dart'} }
+  -- use { 'akinsho/flutter-tools.nvim', ft = {'dart'} }
   use { 'thosakwe/vim-flutter', ft = {'dart'} }
   use { 'dart-lang/dart-vim-plugin', ft = {'dart'} }
   use { 'reisub0/hot-reload.vim', ft = {'dart'} }
@@ -123,9 +123,7 @@ return require('packer').startup(function(use)
   use 'nacro90/numb.nvim'
   use 'dyng/ctrlsf.vim'
   use 'kevinhwang91/nvim-hlslens'
-  use 'justinmk/vim-sneak'
   use 'easymotion/vim-easymotion'
-  use 'karb94/neoscroll.nvim'
   use 'dstein64/nvim-scrollview'
   use 'chaoren/vim-wordmotion'
   use 'coderifous/textobj-word-column.vim'
