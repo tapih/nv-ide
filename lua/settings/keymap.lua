@@ -38,43 +38,41 @@ vim.api.nvim_set_keymap('n', 'g#', "g#<Cmd>lua require('hlslens').start()<CR>", 
 -- Easy-align
 vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', {noremap = false, silent = false})
 vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {noremap = false, silent = false})
+-- Fterm
+vim.api.nvim_set_keymap('n', '<F5>', '<CMD>lua require("FTerm").toggle()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<F5>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', { noremap = true, silent = true })
 -- Diff View
-vim.api.nvim_set_keymap('n', '<leader>to', ':<C-u>DiffviewOpen<CR>', {noremap = true, silent = false})
-vim.api.nvim_set_keymap('n', '<leader>tc', ':<C-u>DiffviewClose<CR>', {noremap = true, silent = false})
+vim.api.nvim_set_keymap('n', '<leader>o', ':<C-u>DiffviewOpen<CR>', {noremap = true, silent = false})
+vim.api.nvim_set_keymap('n', '<leader>c', ':<C-u>DiffviewClose<CR>', {noremap = true, silent = false})
+-- LSP
+vim.api.nvim_set_keymap('n', '<leader>k', ':lua vim.lsp.diagnostic.goto_prev()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>j', ':lua vim.lsp.diagnostic.goto_next()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>g', ':lua vim.lsp.buf.code_action()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>l', ':lua vim.lsp.buf.formatting()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>h', ':lua vim.lsp.buf.hover()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>s', ':lua vim.lsp.buf.document_symbol()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>m', ':lua vim.lsp.buf.rename()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>]', ':lua vim.lsp.buf.definition()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>}', ':lua vim.lsp.buf.references()<CR>', {noremap = true, silent = true})
 -- Ctrlsf
 vim.api.nvim_set_keymap('n', '<leader>f', '<Plug>CtrlSFPrompt', {noremap = false, silent = false})
 vim.api.nvim_set_keymap('v', '<leader>f', '<Plug>CtrlSFVwordExec', {noremap = false, silent = false})
-vim.api.nvim_set_keymap('n', '<leader>n', '<Plug>CtrlSFCwordExec', {noremap = false, silent = false})
-vim.api.nvim_set_keymap('n', '<leader>g', ':CtrlSFToggle<CR>', {noremap = true, silent = false})
--- LSP
-vim.api.nvim_set_keymap('n', '<leader>,', ':lua vim.lsp.diagnostic.goto_prev()<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<leader>;', ':lua vim.lsp.diagnostic.goto_next()<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<leader>a', ':lua vim.lsp.diagnostic.code_action()<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<leader>l', ':lua vim.lsp.buf.definition()<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('i', '<C-l>',     ':lua vim.lsp.buf.definition()<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<leader>t', ':lua vim.lsp.buf.formatting()<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<leader>h', ':lua vim.lsp.buf.hover()<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<leader>m', ':lua vim.lsp.buf.rename()<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<leader>r', ':lua vim.lsp.buf.references()<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<leader>s', ':lua vim.lsp.buf.document_symbol()<CR>', {noremap = true, silent = true})
--- Layout
-vim.api.nvim_set_keymap('n', '<leader>j', ':<C-u>NvimTreeToggle<CR>', {noremap = true, silent = true})
--- Fterm
-vim.api.nvim_set_keymap('n', '<leader>b', '<CMD>lua require("FTerm").toggle()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<F5>', '<CMD>lua require("FTerm").toggle()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('t', '<F5>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>F', '<Plug>CtrlSFCwordExec', {noremap = false, silent = false})
+vim.api.nvim_set_keymap('n', '<leader>t', ':CtrlSFToggle<CR>', {noremap = true, silent = false})
 -- Browser
 vim.api.nvim_set_keymap('n', '<leader>ww', '<Plug>(openbrowser-smart-search)', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>wm', ':<C-u>MarkdownPreview<CR><CR>', { noremap = false, silent = true })
 -- Markdown
-vim.api.nvim_set_keymap('n', '<leader>x', ':<C-u>TableFormat<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>wm', ':<C-u>MarkdownPreview<CR><CR>', { noremap = false, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>wx', ':<C-u>TableFormat<CR>', { noremap = true, silent = true })
 -- Basic
 vim.api.nvim_set_keymap('n', 'tp', ':<C-u>bprev<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'tn', ':<C-u>bnext<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'tz', ':<C-u>noh<CR>', { noremap = true, silent = true })
+-- Layout
+vim.api.nvim_set_keymap('n', 'tb', ':<C-u>NvimTreeToggle<CR>', {noremap = true, silent = true})
 -- Telescope
-vim.api.nvim_set_keymap('n', 'th', ":lua require('telescope.builtin').live_grep()<CR>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'tf', ":lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', 'tj', ":lua require('telescope.builtin').live_grep()<CR>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'to', ":lua require('plugins.telescope').project_files()<CR>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'te', ":lua require('telescope.builtin').buffers()<CR>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'tm', ":lua require('telescope.builtin').marks()<CR>", {noremap = true, silent = true})

@@ -35,6 +35,10 @@ require'flutter-tools'.setup {
   experimental = { -- map of feature flags
     lsp_derive_paths = true, -- EXPERIMENTAL: Attempt to find the user's flutter SDK
   },
+  flutter_lookup_cmd = "asdf where flutter",
+  ui = {
+      border = "shadow",
+  },
   debugger = { -- EXPERIMENTAL: integrate with nvim dap
     enabled = false,
   },
