@@ -91,7 +91,7 @@ return require('packer').startup(function(use)
       ft = {'dart'},
       requires = {'nvim-lua/plenary.nvim'},
   }
-  use { 'thosakwe/vim-flutter', ft = {'dart'} }
+  -- use { 'thosakwe/vim-flutter', ft = {'dart'} }
   use { 'dart-lang/dart-vim-plugin', ft = {'dart'} }
   use { 'reisub0/hot-reload.vim', ft = {'dart'} }
 

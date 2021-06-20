@@ -12,7 +12,6 @@ vim.cmd('sign define LspDiagnosticsSignHint text=')
 vim.cmd('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
 
 require'lspconfig'.gopls.setup{}
-require'lspconfig'.dartls.setup{}
 require'lspconfig'.pyright.setup{}
 require'lspconfig'.dockerls.setup{}
 require'lspconfig'.terraformls.setup{}
@@ -32,27 +31,27 @@ require'lspconfig'.cssls.setup{ capabilities = capabilities }
 require'lspconfig'.tsserver.setup{}
 require'lspconfig'.graphql.setup{}
 
--- require'flutter-tools'.setup {
---   experimental = { -- map of feature flags
---     lsp_derive_paths = true, -- EXPERIMENTAL: Attempt to find the user's flutter SDK
---   },
---   debugger = { -- EXPERIMENTAL: integrate with nvim dap
---     enabled = false,
---   },
---   widget_guides = {
---     enabled = false,
---   },
---   closing_tags = {
---     highlight = "ErrorMsg",
---     prefix = ">"
---   },
---   dev_log = {
---     open_cmd = "tabedit",
---   },
---   outline = {
---     open_cmd = "30vnew",
---   },
---   lsp = {
---     capabilities = capabilities -- e.g. lsp_status capabilities
---   }
--- }
+require'flutter-tools'.setup {
+  experimental = { -- map of feature flags
+    lsp_derive_paths = true, -- EXPERIMENTAL: Attempt to find the user's flutter SDK
+  },
+  debugger = { -- EXPERIMENTAL: integrate with nvim dap
+    enabled = false,
+  },
+  widget_guides = {
+    enabled = false,
+  },
+  closing_tags = {
+    highlight = "ErrorMsg",
+    prefix = ">"
+  },
+  dev_log = {
+    open_cmd = "tabedit",
+  },
+  outline = {
+    open_cmd = "30vnew",
+  },
+  lsp = {
+    capabilities = capabilities -- e.g. lsp_status capabilities
+  }
+}
