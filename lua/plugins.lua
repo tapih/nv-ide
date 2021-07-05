@@ -141,7 +141,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-commentary'
 
   -- Tmux
-  use 'christoomey/vim-tmux-navigator'
+  -- use 'christoomey/vim-tmux-navigator'
   use 'roxma/vim-tmux-clipboard'
 
   -- Colorschema

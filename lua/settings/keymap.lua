@@ -8,7 +8,7 @@ vim.api.nvim_set_keymap('n', '<CR>', ':<C-u>w<CR>', {noremap = true, silent = fa
 vim.api.nvim_set_keymap('n', '<C-p>', '<Up>', {noremap = true, silent = false})
 vim.api.nvim_set_keymap('n', '<C-n>', '<Down>', {noremap = true, silent = false})
 vim.api.nvim_set_keymap('n', 'q', ':q<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<C-w>', ':bd<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', 'tq', ':BufferDelete<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'Q', 'q', {noremap = true, silent = false})
 vim.api.nvim_set_keymap('n', 'U', '<C-r>', {noremap = true, silent = false})
 vim.api.nvim_set_keymap('n', '<C-r>', '<Nop>', {noremap = true, silent = false})
