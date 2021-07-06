@@ -52,6 +52,7 @@ vim.api.nvim_set_keymap('n', '<leader>l', ':lua vim.lsp.buf.formatting()<CR>', {
 vim.api.nvim_set_keymap('n', '<leader>h', ':lua vim.lsp.buf.hover()<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<leader>s', ':lua vim.lsp.buf.document_symbol()<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<leader>m', ':lua vim.lsp.buf.rename()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>i', ':lua vim.lsp.buf.implementation()<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<leader>]', ':lua vim.lsp.buf.definition()<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<leader>}', ':lua vim.lsp.buf.references()<CR>', {noremap = true, silent = true})
 -- Ctrlsf
