@@ -32,7 +32,7 @@ return require('packer').startup(function(use)
 
   -- Treesitter
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use { 'lukas-reineke/indent-blankline.nvim', branch = 'lua' }
+  use { 'lukas-reineke/indent-blankline.nvim' }
   use {
       'JoosepAlviste/nvim-ts-context-commentstring',
       requires = {'nvim-treesitter/nvim-treesitter'},
@@ -115,7 +115,7 @@ return require('packer').startup(function(use)
   use { 'andrewstuart/vim-kubernetes', ft = {'yaml'} }
 
   -- Other languages support
-  use { 'hashivim/vim-terraform', ft = {'tf'} }
+  use { 'hashivim/vim-terraform', ft = {'hcl'} }
   use { 'uarun/vim-protobuf', ft = {'proto'} }
   use { 'tmux-plugins/vim-tmux', ft = {'tmux'} }
 

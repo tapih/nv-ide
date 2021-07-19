@@ -1,4 +1,3 @@
-local nvim_lsp = require('lspconfig')
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
@@ -31,6 +30,7 @@ require'lspconfig'.cssls.setup{ capabilities = capabilities }
 require'lspconfig'.tsserver.setup{}
 require'lspconfig'.graphql.setup{}
 
+vim.opt.runtimepath = vim.opt.runtimepath + '~/.local/share/nvim/site/pack/packer/opt/flutter-tools.nvim'
 require'flutter-tools'.setup {
   experimental = { -- map of feature flags
     lsp_derive_paths = true, -- EXPERIMENTAL: Attempt to find the user's flutter SDK
