@@ -24,7 +24,8 @@ return require('packer').startup(function(use)
 
   -- Autocomplete
   use 'hrsh7th/nvim-compe'
-  use 'SirVer/ultisnips'
+  -- NOTE: diabled because it's slow
+  -- use 'SirVer/ultisnips'
   use 'honza/vim-snippets'
   use 'windwp/nvim-autopairs'
   use 'AndrewRadev/tagalong.vim'
