@@ -132,9 +132,9 @@ return require('packer').startup(function(use)
   use 'dyng/ctrlsf.vim'
   use 'kevinhwang91/nvim-hlslens'
   use 'easymotion/vim-easymotion'
-  use 'dstein64/nvim-scrollview'
+  -- use 'dstein64/nvim-scrollview'
   use 'coderifous/textobj-word-column.vim'
-  use 'kshenoy/vim-signature'
+  -- use 'kshenoy/vim-signature'
   -- use 'nacro90/numb.nvim'
   -- use 'chaoren/vim-wordmotion'
 
