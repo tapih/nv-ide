@@ -9,7 +9,8 @@ if fn.empty(fn.glob(install_path)) > 0 then
   execute 'packadd packer.nvim'
 end
 
-vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile' -- Auto compile when there are changes in plugins.lua
+-- Auto compile when there are changes in plugins.lua
+vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
 
 -- require('packer').init({display = {non_interactive = true}})
 require('packer').init({display = {auto_clean = false}})
@@ -24,16 +25,16 @@ return require('packer').startup(function(use)
 
   -- Autocomplete
   use 'hrsh7th/nvim-compe'
-  -- NOTE: diabled because it's slow
-  -- use 'SirVer/ultisnips'
   use 'honza/vim-snippets'
   use 'windwp/nvim-autopairs'
-  use 'AndrewRadev/tagalong.vim'
   use 'andymass/vim-matchup'
+  use { 'AndrewRadev/tagalong.vim', ft = {'html'}}
+  -- NOTE: diabled because it's slow
+  -- use 'SirVer/ultisnips'
 
   -- Treesitter
+  use 'lukas-reineke/indent-blankline.nvim'
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use { 'lukas-reineke/indent-blankline.nvim' }
   use {
       'JoosepAlviste/nvim-ts-context-commentstring',
       requires = {'nvim-treesitter/nvim-treesitter'},
@@ -44,7 +45,7 @@ return require('packer').startup(function(use)
   }
 
   -- Syntax
-  use 'zinit-zsh/zplugin-vim-syntax'
+  -- use 'zinit-zsh/zplugin-vim-syntax'
   use 'chrisbra/csv.vim'
   use 'junegunn/vim-easy-align'
   use 'bronson/vim-trailing-whitespace'
@@ -54,16 +55,15 @@ return require('packer').startup(function(use)
   use 'ryanoasis/vim-devicons'
 
   -- Status Line and Bufferline
-  use 'famiu/feline.nvim'
   use 'romgrk/barbar.nvim'
+  use {
+      'famiu/feline.nvim',
+      requires = {'kyazdani42/nvim-web-devicons'},
+  }
 
   -- Telescope
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
-  use 'nvim-telescope/telescope.nvim'
-  use 'nvim-telescope/telescope-fzy-native.nvim'
-  use 'nvim-telescope/telescope-project.nvim'
-  use 'fhill2/telescope-ultisnips.nvim'
   use {
     'pwntester/octo.nvim',
     requires = {
@@ -71,9 +71,13 @@ return require('packer').startup(function(use)
       {'nvim-lua/popup.nvim'},
     },
   }
+  use 'nvim-telescope/telescope.nvim'
+  use 'nvim-telescope/telescope-fzy-native.nvim'
+  use 'nvim-telescope/telescope-project.nvim'
+  -- use 'fhill2/telescope-ultisnips.nvim'
 
   -- Explorer
-  use 'kyazdani42/nvim-tree.lua'
+  use { 'kyazdani42/nvim-tree.lua', cmd = {'NvimTreeToggle'}}
 
   -- Color
   use 'norcalli/nvim-colorizer.lua'
@@ -124,21 +128,22 @@ return require('packer').startup(function(use)
   use 'tversteeg/registers.nvim'
 
   -- Move & Search & replace
-  use 'windwp/nvim-spectre'
-  -- use 'nacro90/numb.nvim'
+  -- use 'windwp/nvim-spectre'
   use 'dyng/ctrlsf.vim'
   use 'kevinhwang91/nvim-hlslens'
   use 'easymotion/vim-easymotion'
   use 'dstein64/nvim-scrollview'
-  -- use 'chaoren/vim-wordmotion'
   use 'coderifous/textobj-word-column.vim'
+  use 'kshenoy/vim-signature'
+  -- use 'nacro90/numb.nvim'
+  -- use 'chaoren/vim-wordmotion'
 
   -- Tim Pope docet
   use 'tpope/vim-sensible'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
-  use 'tpope/vim-dispatch'
-  use 'tpope/vim-fugitive'
+  -- use 'tpope/vim-dispatch'
+  -- use 'tpope/vim-fugitive'
   use 'tpope/vim-commentary'
 
   -- Tmux
@@ -146,18 +151,18 @@ return require('packer').startup(function(use)
   use 'roxma/vim-tmux-clipboard'
 
   -- Colorschema
-  use 'sainnhe/gruvbox-material'
+  -- use 'sainnhe/gruvbox-material'
   use 'sainnhe/sonokai'
+  use 'folke/todo-comments.nvim'
 
   -- General Plugins
   use 'airblade/vim-rooter'
   use 'mhinz/vim-startify'
   use 'jeffkreeftmeijer/vim-numbertoggle'
-  use 'lambdalisue/suda.vim'
   use 'numtostr/FTerm.nvim'
-  use 'folke/todo-comments.nvim'
-  use 'vim-scripts/loremipsum'
   use 'ruanyl/vim-gh-line'
+  use { 'vim-scripts/loremipsum', cmd = {'Loremipsum'} }
+  use { 'lambdalisue/suda.vim', cmd = {'SudaRead', 'SudaWrite'} }
   use {
     'tyru/open-browser.vim',
     cmd = {'OpenBrowser', 'OpenBrowserSearch', 'OpenBrowserSmartSearch'},
