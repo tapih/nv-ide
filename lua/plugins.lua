@@ -152,7 +152,7 @@ return require('packer').startup(function(use)
 
   -- Colorschema
   -- use 'sainnhe/gruvbox-material'
-  use 'sainnhe/sonokai'
+  -- use 'sainnhe/sonokai'
   use 'folke/todo-comments.nvim'
 
   -- General Plugins
