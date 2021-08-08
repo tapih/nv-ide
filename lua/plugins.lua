@@ -75,9 +75,9 @@ return require('packer').startup(function(use)
       {'nvim-lua/popup.nvim'},
     },
   }
-  use { 'nvim-telescope/telescope.nvim', cmd = 'Telescope' }
-  use { 'nvim-telescope/telescope-fzy-native.nvim', after = 'telescope.nvim' }
-  use { 'nvim-telescope/telescope-project.nvim', after = 'telescope.nvim' }
+  use 'nvim-telescope/telescope.nvim'
+  use 'nvim-telescope/telescope-fzy-native.nvim'
+  -- use 'nvim-telescope/telescope-project.nvim'
   -- use 'fhill2/telescope-ultisnips.nvim'
 
   -- Explorer
@@ -101,7 +101,7 @@ return require('packer').startup(function(use)
       requires = {'nvim-lua/plenary.nvim'},
   }
   -- use { 'thosakwe/vim-flutter', ft = {'dart'} }
-  use { 'dart-lang/dart-vim-plugin', ft = {'dart'} }
+  -- use { 'dart-lang/dart-vim-plugin', ft = {'dart'} }
   use { 'reisub0/hot-reload.vim', ft = {'dart'} }
 
   -- Go
@@ -110,7 +110,7 @@ return require('packer').startup(function(use)
 
   -- Markdown
   use { 'godlygeek/tabular', ft = {'markdown'} }
-  use { 'plasticboy/vim-markdown', ft = {'markdown'} }
+  -- use { 'plasticboy/vim-markdown', ft = {'markdown'} }
   use {
     'iamcco/markdown-preview.nvim',
     ft = {'markdown'},
@@ -119,14 +119,12 @@ return require('packer').startup(function(use)
   }
 
   -- YAML
-  use { 'yasuhiroki/github-actions-yaml.vim', ft = {'yaml'} }
   use { 'xavierchow/vim-swagger-preview', ft = {'yaml'} }
-  use { 'andrewstuart/vim-kubernetes', ft = {'yaml'} }
+  -- use { 'andrewstuart/vim-kubernetes', ft = {'yaml'} }
 
   -- Other languages support
-  use { 'hashivim/vim-terraform', ft = {'hcl'} }
-  use { 'uarun/vim-protobuf', ft = {'proto'} }
-  use { 'tmux-plugins/vim-tmux', ft = {'tmux'} }
+  -- use { 'uarun/vim-protobuf', ft = {'proto'} }
+  -- use { 'tmux-plugins/vim-tmux', ft = {'tmux'} }
 
   -- Registers
   use 'tversteeg/registers.nvim'
@@ -156,7 +154,7 @@ return require('packer').startup(function(use)
 
   -- Colorschema
   -- use 'sainnhe/gruvbox-material'
-  -- use 'sainnhe/sonokai'
+  use 'sainnhe/sonokai'
   use 'folke/todo-comments.nvim'
 
   -- General Plugins
