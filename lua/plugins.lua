@@ -25,6 +25,7 @@ return require('packer').startup(function(use)
   -- LSP
   use 'neovim/nvim-lspconfig'
   use 'onsails/lspkind-nvim'
+  use { 'stevearc/aerial.nvim', cmd = 'AerialToggle' }
 
   -- Autocomplete
   use 'hrsh7th/nvim-compe'
