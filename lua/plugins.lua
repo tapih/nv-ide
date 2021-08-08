@@ -75,13 +75,13 @@ return require('packer').startup(function(use)
       {'nvim-lua/popup.nvim'},
     },
   }
-  use 'nvim-telescope/telescope.nvim'
-  use 'nvim-telescope/telescope-fzy-native.nvim'
-  use 'nvim-telescope/telescope-project.nvim'
+  use { 'nvim-telescope/telescope.nvim', cmd = 'Telescope' }
+  use { 'nvim-telescope/telescope-fzy-native.nvim', after = 'telescope.nvim' }
+  use { 'nvim-telescope/telescope-project.nvim', after = 'telescope.nvim' }
   -- use 'fhill2/telescope-ultisnips.nvim'
 
   -- Explorer
-  use { 'kyazdani42/nvim-tree.lua', cmd = {'NvimTreeToggle'}}
+  use { 'kyazdani42/nvim-tree.lua', cmd = {'NvimTreeToggle'} }
 
   -- Color
   use 'norcalli/nvim-colorizer.lua'
@@ -136,8 +136,8 @@ return require('packer').startup(function(use)
   use 'dyng/ctrlsf.vim'
   use 'kevinhwang91/nvim-hlslens'
   use 'easymotion/vim-easymotion'
-  -- use 'dstein64/nvim-scrollview'
   use 'coderifous/textobj-word-column.vim'
+  -- use 'dstein64/nvim-scrollview'
   -- use 'kshenoy/vim-signature'
   -- use 'nacro90/numb.nvim'
   -- use 'chaoren/vim-wordmotion'
