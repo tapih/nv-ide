@@ -30,8 +30,8 @@ return require('packer').startup(function(use)
   -- Autocomplete
   use 'hrsh7th/nvim-compe'
   use 'windwp/nvim-autopairs'
+  use 'L3MON4D3/LuaSnip'
   use { 'andymass/vim-matchup', event = 'VimEnter' }
-  use { 'honza/vim-snippets', event = 'InsertEnter' }
   use { 'AndrewRadev/tagalong.vim', ft = {'html'}, event = 'InsertEnter' }
   -- NOTE: disabled because it's slow to load
   -- use 'SirVer/ultisnips'
