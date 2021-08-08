@@ -19,17 +19,20 @@ return require('packer').startup(function(use)
   -- Packer can manage itself as an optional plugin
   use 'wbthomason/packer.nvim'
 
+  -- Buffer management
+  use { 'mhinz/vim-sayonara', cmd = 'Sayonara' }
+
   -- LSP
   use 'neovim/nvim-lspconfig'
   use 'onsails/lspkind-nvim'
 
   -- Autocomplete
   use 'hrsh7th/nvim-compe'
-  use 'honza/vim-snippets'
   use 'windwp/nvim-autopairs'
-  use 'andymass/vim-matchup'
-  use { 'AndrewRadev/tagalong.vim', ft = {'html'}}
-  -- NOTE: diabled because it's slow
+  use { 'andymass/vim-matchup', event = 'VimEnter' }
+  use { 'honza/vim-snippets', event = 'InsertEnter' }
+  use { 'AndrewRadev/tagalong.vim', ft = {'html'}, event = 'InsertEnter' }
+  -- NOTE: disabled because it's slow to load
   -- use 'SirVer/ultisnips'
 
   -- Treesitter
@@ -142,7 +145,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-sensible'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
-  -- use 'tpope/vim-dispatch'
+  use { 'tpope/vim-dispatch', cmd = {'Dispatch', 'Make', 'Focus', 'Start'} }
   -- use 'tpope/vim-fugitive'
   use 'tpope/vim-commentary'
 
