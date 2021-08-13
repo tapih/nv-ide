@@ -20,7 +20,7 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- Buffer management
-  use { 'mhinz/vim-sayonara', cmd = 'Sayonara' }
+  -- use { 'mhinz/vim-sayonara', cmd = 'Sayonara' }
 
   -- LSP
   use 'neovim/nvim-lspconfig'
@@ -31,27 +31,27 @@ return require('packer').startup(function(use)
   use 'hrsh7th/nvim-compe'
   use 'windwp/nvim-autopairs'
   -- use 'L3MON4D3/LuaSnip'
-  use { 'andymass/vim-matchup', event = 'VimEnter' }
-  use { 'AndrewRadev/tagalong.vim', ft = {'html'}, event = 'InsertEnter' }
+  -- use { 'andymass/vim-matchup', event = 'VimEnter' }
+  -- use { 'AndrewRadev/tagalong.vim', ft = {'html'}, event = 'InsertEnter' }
   -- NOTE: disabled because it's slow to load
   -- use 'SirVer/ultisnips'
 
   -- Treesitter
   use 'lukas-reineke/indent-blankline.nvim'
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use {
-      'JoosepAlviste/nvim-ts-context-commentstring',
-      requires = {'nvim-treesitter/nvim-treesitter'},
-  }
-  use {
-      'romgrk/nvim-treesitter-context',
-      requires = {'nvim-treesitter/nvim-treesitter'},
-  }
+  -- use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  -- use {
+  --     'JoosepAlviste/nvim-ts-context-commentstring',
+  --     requires = {'nvim-treesitter/nvim-treesitter'},
+  -- }
+  -- use {
+  --     'romgrk/nvim-treesitter-context',
+  --     requires = {'nvim-treesitter/nvim-treesitter'},
+  -- }
 
   -- Syntax
   -- use 'zinit-zsh/zplugin-vim-syntax'
   -- use 'chrisbra/csv.vim'
-  use 'junegunn/vim-easy-align'
+  -- use 'junegunn/vim-easy-align'
   use 'bronson/vim-trailing-whitespace'
 
   -- Icons
@@ -81,25 +81,25 @@ return require('packer').startup(function(use)
   -- use 'fhill2/telescope-ultisnips.nvim'
 
   -- Explorer
-  use { 'kyazdani42/nvim-tree.lua', cmd = {'NvimTreeToggle'} }
+  -- use { 'kyazdani42/nvim-tree.lua', cmd = {'NvimTreeToggle'} }
 
   -- Color
-  use 'norcalli/nvim-colorizer.lua'
+  -- use 'norcalli/nvim-colorizer.lua'
 
   -- Git
   use {
     'lewis6991/gitsigns.nvim',
     requires = {'nvim-lua/plenary.nvim'},
   }
-  use 'rhysd/committia.vim'
+  -- use 'rhysd/committia.vim'
   use 'sindrets/diffview.nvim'
 
   -- Flutter
-  use {
-      'akinsho/flutter-tools.nvim',
-      ft = {'dart'},
-      requires = {'nvim-lua/plenary.nvim'},
-  }
+  -- use {
+  --     'akinsho/flutter-tools.nvim',
+  --     ft = {'dart'},
+  --     requires = {'nvim-lua/plenary.nvim'},
+  -- }
   -- use { 'thosakwe/vim-flutter', ft = {'dart'} }
   -- use { 'dart-lang/dart-vim-plugin', ft = {'dart'} }
   use { 'reisub0/hot-reload.vim', ft = {'dart'} }
@@ -119,7 +119,7 @@ return require('packer').startup(function(use)
   }
 
   -- YAML
-  use { 'xavierchow/vim-swagger-preview', ft = {'yaml'} }
+  -- use { 'xavierchow/vim-swagger-preview', ft = {'yaml'} }
   -- use { 'andrewstuart/vim-kubernetes', ft = {'yaml'} }
 
   -- Other languages support
@@ -127,12 +127,12 @@ return require('packer').startup(function(use)
   -- use { 'tmux-plugins/vim-tmux', ft = {'tmux'} }
 
   -- Registers
-  use 'tversteeg/registers.nvim'
+  -- use 'tversteeg/registers.nvim'
 
   -- Move & Search & replace
   -- use 'windwp/nvim-spectre'
   use 'dyng/ctrlsf.vim'
-  use 'kevinhwang91/nvim-hlslens'
+  -- use 'kevinhwang91/nvim-hlslens'
   use 'easymotion/vim-easymotion'
   use 'coderifous/textobj-word-column.vim'
   -- use 'dstein64/nvim-scrollview'
@@ -155,13 +155,13 @@ return require('packer').startup(function(use)
   -- Colorschema
   -- use 'sainnhe/gruvbox-material'
   -- use 'sainnhe/sonokai'
-  use 'folke/todo-comments.nvim'
+  -- use 'folke/todo-comments.nvim'
 
   -- General Plugins
   use 'airblade/vim-rooter'
   use 'mhinz/vim-startify'
   -- use 'jeffkreeftmeijer/vim-numbertoggle'
-  use 'numtostr/FTerm.nvim'
+  -- use 'numtostr/FTerm.nvim'
   use 'ruanyl/vim-gh-line'
   -- use { 'vim-scripts/loremipsum', cmd = {'Loremipsum'} }
   -- use { 'lambdalisue/suda.vim', cmd = {'SudaRead', 'SudaWrite'} }
