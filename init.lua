@@ -16,7 +16,7 @@ require('settings.filetype')
 require('lsp')
 -- Plugins config
 require('plugins.feline')
-require('plugins.fterm')
+-- require('plugins.fterm')
 require('plugins.hlslens')
 require('plugins.treesitter')
 require('plugins.colorizer')

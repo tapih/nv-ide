@@ -25,12 +25,12 @@ return require('packer').startup(function(use)
   -- LSP
   use 'neovim/nvim-lspconfig'
   use 'onsails/lspkind-nvim'
-  use { 'stevearc/aerial.nvim', cmd = 'AerialToggle' }
+  -- use { 'stevearc/aerial.nvim', cmd = 'AerialToggle' }
 
   -- Autocomplete
   use 'hrsh7th/nvim-compe'
   use 'windwp/nvim-autopairs'
-  use 'L3MON4D3/LuaSnip'
+  -- use 'L3MON4D3/LuaSnip'
   use { 'andymass/vim-matchup', event = 'VimEnter' }
   use { 'AndrewRadev/tagalong.vim', ft = {'html'}, event = 'InsertEnter' }
   -- NOTE: disabled because it's slow to load
@@ -50,7 +50,7 @@ return require('packer').startup(function(use)
 
   -- Syntax
   -- use 'zinit-zsh/zplugin-vim-syntax'
-  use 'chrisbra/csv.vim'
+  -- use 'chrisbra/csv.vim'
   use 'junegunn/vim-easy-align'
   use 'bronson/vim-trailing-whitespace'
 
@@ -144,7 +144,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-sensible'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
-  use { 'tpope/vim-dispatch', cmd = {'Dispatch', 'Make', 'Focus', 'Start'} }
+  -- use { 'tpope/vim-dispatch', cmd = {'Dispatch', 'Make', 'Focus', 'Start'} }
   -- use 'tpope/vim-fugitive'
   use 'tpope/vim-commentary'
 
@@ -154,17 +154,17 @@ return require('packer').startup(function(use)
 
   -- Colorschema
   -- use 'sainnhe/gruvbox-material'
-  use 'sainnhe/sonokai'
+  -- use 'sainnhe/sonokai'
   use 'folke/todo-comments.nvim'
 
   -- General Plugins
   use 'airblade/vim-rooter'
   use 'mhinz/vim-startify'
-  use 'jeffkreeftmeijer/vim-numbertoggle'
+  -- use 'jeffkreeftmeijer/vim-numbertoggle'
   use 'numtostr/FTerm.nvim'
   use 'ruanyl/vim-gh-line'
-  use { 'vim-scripts/loremipsum', cmd = {'Loremipsum'} }
-  use { 'lambdalisue/suda.vim', cmd = {'SudaRead', 'SudaWrite'} }
+  -- use { 'vim-scripts/loremipsum', cmd = {'Loremipsum'} }
+  -- use { 'lambdalisue/suda.vim', cmd = {'SudaRead', 'SudaWrite'} }
   use {
     'tyru/open-browser.vim',
     cmd = {'OpenBrowser', 'OpenBrowserSearch', 'OpenBrowserSmartSearch'},
