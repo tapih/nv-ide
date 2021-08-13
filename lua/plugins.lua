@@ -1,173 +1,170 @@
--- vim.cmd [[packadd packer.nvim]]
-local execute = vim.api.nvim_command
-local fn = vim.fn
+local packer = nil
+local function init()
+	if packer == nil then
+		packer = require('packer')
+		packer.init { disable_commands = true }
+	end
 
-local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+	local use = packer.use
+	packer.reset()
 
-if fn.empty(fn.glob(install_path)) > 0 then
-  execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
-  execute 'packadd packer.nvim'
-end
+	-- Packer can manage packer on its own :)
+	use '~/.config/nvim/packer.nvim'
 
--- Auto compile when there are changes in plugins.lua
-vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
+	-- Profiling
+	use { 'dstein64/vim-startuptime', cmd = 'StartupTime', config = [[vim.g.startuptime_tries = 10]] }
 
--- require('packer').init({display = {non_interactive = true}})
-require('packer').init({display = {auto_clean = false}})
+	-- Basic
+	use 'nvim-lua/popup.nvim'
+	use 'nvim-lua/plenary.nvim'
 
-return require('packer').startup(function(use)
-  -- Packer can manage itself as an optional plugin
-  use 'wbthomason/packer.nvim'
+	-- Appearance
+	use 'morhetz/gruvbox'
+	use 'kyazdani42/nvim-web-devicons'
+	use { 'famiu/feline.nvim', requires = {'kyazdani42/nvim-web-devicons'} }
+	use { 'romgrk/barbar.nvim', requires = {'kyazdani42/nvim-web-devicons'} }
+	use {
+		'norcalli/nvim-colorizer.lua',
+		ft = { 'css', 'javascript', 'typescript', 'vim', 'html', 'dart' },
+		config = [[require('colorizer').setup {'css', 'javascript', 'vim', 'html'}]],
+	}
+	use { 'lukas-reineke/indent-blankline.nvim', config = [[require('plugins.indent-blackline')]] }
+	use { 'nvim-treesitter/nvim-treesitter',     config = [[require('plugins.nvim-treesitter')]], run = ':TSUpdate' }
+	use { 'romgrk/nvim-treesitter-context',      requires = {'nvim-treesitter/nvim-treesitter'} }
 
-  -- Buffer management
-  -- use { 'mhinz/vim-sayonara', cmd = 'Sayonara' }
+	-- Project
+	use 'airblade/vim-rooter'
+	use 'mhinz/vim-startify'
+	use {
+		'kyazdani42/nvim-tree.lua',
+		opt = true,
+		cmd = {'NvimTreeToggle'},
+		config = [[require('plugins.nvim-tree')]],
+	}
 
-  -- LSP
-  use 'neovim/nvim-lspconfig'
-  use 'onsails/lspkind-nvim'
-  -- use { 'stevearc/aerial.nvim', cmd = 'AerialToggle' }
+	-- Terminal
+	use { 'numToStr/FTerm.nvim', config = [[require('plugins.fterm')]] }
+
+	-- Syntax
+	-- use 'zinit-zsh/zplugin-vim-syntax'
+	use 'bronson/vim-trailing-whitespace'
+	use 'junegunn/vim-easy-align'
+
+	-- Search
+	use 'coderifous/textobj-word-column.vim'
+	use { 'dyng/ctrlsf.vim',           config = [[require('plugins.ctrlsf')]] }
+	use { 'easymotion/vim-easymotion', config = [[require('plugins.vim-easymotion')]] }
+
+	-- Clipboard
+	use 'roxma/vim-tmux-clipboard'
+	use { 'tversteeg/registers.nvim', opt = true, cmd = {"Registers"} }
+
+	-- Browser
+	use 'tyru/open-browser.vim'
+	use 'ruanyl/vim-gh-line'
+	use { 'xavierchow/vim-swagger-preview', ft = {'yaml'} }
+
+
+	-- Tim Pope docet
+	use 'tpope/vim-surround'
+	use 'tpope/vim-repeat'
+	use { 'tpope/vim-fugitive',   opt = true, cmd = {'Gdiff', 'Gblame'} }
+	use { 'tpope/vim-commentary', opt = true, cmd = {'Commentary'} }
+	use { 'tpope/vim-dispatch',   opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'} }
+
+	-- LSP
+	use 'neovim/nvim-lspconfig'
+	use { 'onsails/lspkind-nvim', config = [[require('plugins.lspkind')]] }
+
+	-- Git
+	use {
+		'sindrets/diffview.nvim',
+		opt = true,
+		cmd = {'DiffviewOpen'},
+		condig = [[require('plugins.diffview')]],
+	}
+
+	use {
+		'lewis6991/gitsigns.nvim',
+		requires = {'nvim-lua/plenary.nvim'},
+		config = [[require('plugins.gitsigns')]],
+	}
+	use {
+		'pwntester/octo.nvim',
+		opt = true,
+		cmd = {
+			'Octo',
+			'OctoAddReviewComment',
+			'OctoAddReviewSuggestion',
+			'OctoAddReviewSuggestions',
+		},
+		requires = {
+			{'nvim-lua/plenary.nvim'},
+		},
+	}
 
   -- Autocomplete
-  use 'hrsh7th/nvim-compe'
-  use 'windwp/nvim-autopairs'
+  use 'andymass/vim-matchup'
+  use {
+    'hrsh7th/nvim-compe',
+    event = 'InsertEnter *',
+    config = [[require('plugins.nvim-compe')]],
+  }
+  use {
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter *',
+    config = [[require('plugins.nvim-autopairs')]],
+  }
   -- use 'L3MON4D3/LuaSnip'
-  -- use { 'andymass/vim-matchup', event = 'VimEnter' }
-  -- use { 'AndrewRadev/tagalong.vim', ft = {'html'}, event = 'InsertEnter' }
-  -- NOTE: disabled because it's slow to load
-  -- use 'SirVer/ultisnips'
 
-  -- Treesitter
-  use 'lukas-reineke/indent-blankline.nvim'
-  -- use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  -- use {
-  --     'JoosepAlviste/nvim-ts-context-commentstring',
-  --     requires = {'nvim-treesitter/nvim-treesitter'},
-  -- }
-  -- use {
-  --     'romgrk/nvim-treesitter-context',
-  --     requires = {'nvim-treesitter/nvim-treesitter'},
-  -- }
+	-- Telescope
+	use {
+		{
+			'nvim-telescope/telescope.nvim',
+			requires = {
+				'nvim-lua/popup.nvim',
+				'nvim-lua/plenary.nvim',
+				'nvim-telescope/telescope-fzy-native.nvim',
+			},
+			config = [[require('plugins.telescope')]],
+			opt = true,
+			cmd = {'Telescope'},
+		},
+		{
+			'nvim-telescope/telescope-fzy-native.nvim',
+			run = 'git submodule update --init --recursive',
+		},
+	}
+	-- use { 'folke/todo-comments.nvim', requires = "nvim-lua/plenary.nvim" }
 
-  -- Syntax
-  -- use 'zinit-zsh/zplugin-vim-syntax'
-  -- use 'chrisbra/csv.vim'
-  -- use 'junegunn/vim-easy-align'
-  use 'bronson/vim-trailing-whitespace'
+	-- Markdown
+	use { 'godlygeek/tabular', ft = {'markdown'} }
+	use {
+		'plasticboy/vim-markdown',
+		ft = {'markdown'},
+		config = function()
+			vim.g['vim_markdown_folding_disabled'] = 1
+		end,
+	}
+	use {
+		'iamcco/markdown-preview.nvim',
+		ft = {'markdown'},
+		run = 'cd app && yarn install',
+		config = [[require('plugins.markdown-preview')]],
+	}
 
-  -- Icons
-  use 'kyazdani42/nvim-web-devicons'
-  use 'ryanoasis/vim-devicons'
+	-- Flutter
+	use { 'akinsho/flutter-tools.nvim', ft = {'dart'}, requires = {'nvim-lua/plenary.nvim'} }
 
-  -- Status Line and Bufferline
-  use 'romgrk/barbar.nvim'
-  use {
-      'famiu/feline.nvim',
-      requires = {'kyazdani42/nvim-web-devicons'},
-  }
+	-- Go
+	use { 'buoto/gotests-vim',   ft = {'go'}, cmd = {'GoTests', 'GoTestsAll'} }
+	use { 'mattn/vim-goimports', ft = {'go'}, cmd = {'w'} }
 
-  -- Telescope
-  use 'nvim-lua/popup.nvim'
-  use 'nvim-lua/plenary.nvim'
-  use {
-    'pwntester/octo.nvim',
-    requires = {
-      {'nvim-lua/plenary.nvim'},
-      {'nvim-lua/popup.nvim'},
-    },
-  }
-  use 'nvim-telescope/telescope.nvim'
-  use 'nvim-telescope/telescope-fzy-native.nvim'
-  -- use 'nvim-telescope/telescope-project.nvim'
-  -- use 'fhill2/telescope-ultisnips.nvim'
+	end
 
-  -- Explorer
-  -- use { 'kyazdani42/nvim-tree.lua', cmd = {'NvimTreeToggle'} }
-
-  -- Color
-  -- use 'norcalli/nvim-colorizer.lua'
-
-  -- Git
-  use {
-    'lewis6991/gitsigns.nvim',
-    requires = {'nvim-lua/plenary.nvim'},
-  }
-  -- use 'rhysd/committia.vim'
-  use 'sindrets/diffview.nvim'
-
-  -- Flutter
-  -- use {
-  --     'akinsho/flutter-tools.nvim',
-  --     ft = {'dart'},
-  --     requires = {'nvim-lua/plenary.nvim'},
-  -- }
-  -- use { 'thosakwe/vim-flutter', ft = {'dart'} }
-  -- use { 'dart-lang/dart-vim-plugin', ft = {'dart'} }
-  use { 'reisub0/hot-reload.vim', ft = {'dart'} }
-
-  -- Go
-  use { 'buoto/gotests-vim', ft = {'go'} }
-  use { 'mattn/vim-goimports', ft = {'go'} }
-
-  -- Markdown
-  use { 'godlygeek/tabular', ft = {'markdown'} }
-  -- use { 'plasticboy/vim-markdown', ft = {'markdown'} }
-  use {
-    'iamcco/markdown-preview.nvim',
-    ft = {'markdown'},
-    run = 'cd app && yarn install',
-    cmd = 'MarkdownPreview',
-  }
-
-  -- YAML
-  -- use { 'xavierchow/vim-swagger-preview', ft = {'yaml'} }
-  -- use { 'andrewstuart/vim-kubernetes', ft = {'yaml'} }
-
-  -- Other languages support
-  -- use { 'uarun/vim-protobuf', ft = {'proto'} }
-  -- use { 'tmux-plugins/vim-tmux', ft = {'tmux'} }
-
-  -- Registers
-  -- use 'tversteeg/registers.nvim'
-
-  -- Move & Search & replace
-  -- use 'windwp/nvim-spectre'
-  use 'dyng/ctrlsf.vim'
-  -- use 'kevinhwang91/nvim-hlslens'
-  use 'easymotion/vim-easymotion'
-  use 'coderifous/textobj-word-column.vim'
-  -- use 'dstein64/nvim-scrollview'
-  -- use 'kshenoy/vim-signature'
-  -- use 'nacro90/numb.nvim'
-  -- use 'chaoren/vim-wordmotion'
-
-  -- Tim Pope docet
-  use 'tpope/vim-sensible'
-  use 'tpope/vim-surround'
-  use 'tpope/vim-repeat'
-  -- use { 'tpope/vim-dispatch', cmd = {'Dispatch', 'Make', 'Focus', 'Start'} }
-  -- use 'tpope/vim-fugitive'
-  use 'tpope/vim-commentary'
-
-  -- Tmux
-  -- use 'christoomey/vim-tmux-navigator'
-  use 'roxma/vim-tmux-clipboard'
-
-  -- Colorschema
-  -- use 'sainnhe/gruvbox-material'
-  -- use 'sainnhe/sonokai'
-  -- use 'folke/todo-comments.nvim'
-
-  -- General Plugins
-  use 'airblade/vim-rooter'
-  use 'mhinz/vim-startify'
-  -- use 'jeffkreeftmeijer/vim-numbertoggle'
-  -- use 'numtostr/FTerm.nvim'
-  use 'ruanyl/vim-gh-line'
-  -- use { 'vim-scripts/loremipsum', cmd = {'Loremipsum'} }
-  -- use { 'lambdalisue/suda.vim', cmd = {'SudaRead', 'SudaWrite'} }
-  use {
-    'tyru/open-browser.vim',
-    cmd = {'OpenBrowser', 'OpenBrowserSearch', 'OpenBrowserSmartSearch'},
-  }
-
-end)
+	return setmetatable({}, {
+		__index = function(_, key)
+			init()
+			return packer[key]
+		end,
+	})
